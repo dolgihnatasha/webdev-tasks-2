@@ -116,8 +116,8 @@ function dbRequest(func, connectionInfo, callback) {
                     callback('err')
                 }
             }
-            result.then(()=>{db.close();});
-            callback(null, result);
+            result.then((data)=>{db.close();callback(null, data);});
+
         }
     });
 }
