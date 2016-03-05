@@ -53,9 +53,9 @@ Connection.prototype.greatThan = function (value) {
 
 Connection.prototype.include = function (values) {
     if (!this.isNot) {
-        this.operations[this.field] = values;
+        this.operations[this.field] = {$in: values};
     } else {
-        this.operations[this.field] = {$ne:values};
+        this.operations[this.field] = {$not: {$in: values}};
         this.isNot = false;
     }
     return this;
